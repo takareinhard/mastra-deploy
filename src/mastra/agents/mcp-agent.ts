@@ -1,4 +1,4 @@
-import { openai } from '@ai-sdk/openai';
+import { google } from '@ai-sdk/google';
 import { Agent } from '@mastra/core/agent';
 import { Memory } from '@mastra/memory';
 import { LibSQLStore } from '@mastra/libsql';
@@ -41,7 +41,7 @@ export const mcpAgent = new Agent({
 
       Always aim to provide helpful, accurate responses using the available tools.
 `,
-  model: openai('gpt-4o-mini'),
+  model: google('gemini-2.0-flash-001'),
   tools: await mcp.getTools(),
   memory: new Memory({
     storage: new LibSQLStore({
